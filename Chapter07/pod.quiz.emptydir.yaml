@@ -4,18 +4,17 @@ metadata:
   name: quiz
 spec:
   volumes:
-  - name: quiz-data
-    emptyDir: {}
-  containers:
-  - name: quiz-api
-    image: luksa/quiz-api:0.1
-    imagePullPolicy: Always
-    ports:
-    - name: http
-      containerPort: 8080
-  - name: mongo
-    image: mongo:5
-    volumeMounts:
     - name: quiz-data
-      mountPath: /data/db
-
+      emptyDir: {}
+  containers:
+    - name: quiz-api
+      image: liviumoraru/quiz-api:0.1
+      imagePullPolicy: Always
+      ports:
+        - name: http
+          containerPort: 8080
+    - name: mongo
+      image: mongo:bionic
+      volumeMounts:
+        - name: quiz-data
+          mountPath: /data/db

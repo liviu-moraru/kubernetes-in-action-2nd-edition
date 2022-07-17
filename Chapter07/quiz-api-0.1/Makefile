@@ -9,6 +9,8 @@ all: build image push
 
 build:
 	@echo "Building go binaries"
+	@echo ${PLATFORM}
+	@echo ${MYVAR}
 	@DOCKER_BUILDKIT=1 docker build app/ --target bin --output app/bin/ --platform ${PLATFORM}
 
 image:

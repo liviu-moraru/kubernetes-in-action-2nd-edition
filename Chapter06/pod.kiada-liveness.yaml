@@ -4,28 +4,28 @@ metadata:
   name: kiada-liveness
 spec:
   containers:
-  - name: kiada
-    image: luksa/kiada:0.2
-    ports:
-    - name: http
-      containerPort: 8080
-    livenessProbe:
-      httpGet:
-        path: /
-        port: 8080
-  - name: envoy
-    image: luksa/kiada-ssl-proxy:0.1
-    imagePullPolicy: Always
-    ports:
-    - name: https
-      containerPort: 8443
-    - name: admin
-      containerPort: 9901
-    livenessProbe:
-      httpGet:
-        path: /ready
-        port: admin
-      initialDelaySeconds: 10
-      periodSeconds: 5
-      timeoutSeconds: 2
-      failureThreshold: 3
+    - name: kiada
+      image: liviumoraru/kiada:0.2
+      ports:
+        - name: http
+          containerPort: 8080
+      livenessProbe:
+        httpGet:
+          path: /
+          port: 8080
+    - name: envoy
+      image: liviumoraru/kiada-ssl-proxy:0.1
+      imagePullPolicy: Always
+      ports:
+        - name: https
+          containerPort: 8443
+        - name: admin
+          containerPort: 9901
+      livenessProbe:
+        httpGet:
+          path: /ready
+          port: admin
+        initialDelaySeconds: 10
+        periodSeconds: 5
+        timeoutSeconds: 2
+        failureThreshold: 3

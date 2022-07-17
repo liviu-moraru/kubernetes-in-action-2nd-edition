@@ -4,12 +4,11 @@ metadata:
   name: quiz
 spec:
   containers:
-  - name: quiz-api
-    image: luksa/quiz-api:0.1
-    imagePullPolicy: Always
-    ports:
-    - name: http
-      containerPort: 8080
-  - name: mongo
-    image: mongo:5
-
+    - name: quiz-api
+      image: liviumoraru/quiz-api:0.1
+      imagePullPolicy: Always
+      ports:
+        - name: http
+          containerPort: 8080
+    - name: mongo
+      image: mongo:5
